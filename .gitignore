@@ -77,7 +77,6 @@ fabric.properties
 .mtj.tmp/
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
@@ -88,9 +87,4 @@ fabric.properties
 hs_err_pid*
 .idea/
 calendar-server.iml
-src/main/java/com/artyomov/persistense/
-src/main/java/com/artyomov/services/
-src/main/java/com/artyomov/util/
-src/main/resources/
-src/test/
 target/
