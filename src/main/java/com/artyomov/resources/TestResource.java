@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
  * Test REST resource
  */
 @Path("rest")
-public class MyResource {
+public class TestResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
