@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;
 
 /**
+ * DTO class for {@link com.artyomov.persistence.jpa.Event}.
+ *
  * @author <a href="mailto:artyomov.dev@gmail.com">Vlad Artyomov</a>
  *         Date: 08.03.17
  *         Time: 11:14
