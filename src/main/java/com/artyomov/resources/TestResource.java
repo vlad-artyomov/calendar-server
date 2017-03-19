@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 @Path("rest")
 public class TestResource {
 
-    private static final Logger log = LogManager.getLogger(MyResource.class);
+    private static final Logger log = LogManager.getLogger(TestResource.class);
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
