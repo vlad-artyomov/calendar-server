@@ -10,11 +10,12 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Test just to show how to work with Jersey Test Framework.
+ * Uses {@link com.artyomov.resources.SampleResource} REST resource.
  *
  * @author Vlad Artyomov
  * @since 25.03.2017, 13:33
  */
-public class MyResourceTest extends JerseyTest {
+public class SampleResourceTest extends JerseyTest {
 
     @Override
     protected Application configure() {
