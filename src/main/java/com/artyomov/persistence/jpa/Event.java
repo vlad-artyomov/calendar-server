@@ -1,5 +1,12 @@
 package com.artyomov.persistence.jpa;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -8,13 +15,23 @@ import java.time.LocalDate;
  * @author Vlad Artyomov
  * @since 08.03.2017, 8:53
  */
-public class Event {
+@Entity
+@Table(name = "event")
+//TODO add data source
+public class Event implements Serializable {
 
+    private static final long serialVersionUID = 5112396377615933516L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @NotNull
     private LocalDate date;
 
     private String description;
 
-    private Event() {
+    protected Event() {
     }
 
     public static class Builder {
@@ -46,5 +63,9 @@ public class Event {
 
     public String getDescription() {
         return description;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

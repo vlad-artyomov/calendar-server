@@ -1,7 +1,9 @@
 package com.artyomov.resources;
 
 import com.artyomov.persistence.dto.EventInfo;
+import com.artyomov.persistence.repository.EventRepository;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -19,6 +21,9 @@ import java.util.List;
  */
 @Path("events")
 public class EventResource {
+
+    @Inject
+    EventRepository eventRepository;
 
     @GET
     @Path("test")

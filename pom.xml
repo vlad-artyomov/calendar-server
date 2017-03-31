@@ -74,6 +74,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Java EE -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+
         <!-- Log4j-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
