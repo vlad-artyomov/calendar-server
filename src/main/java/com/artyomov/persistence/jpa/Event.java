@@ -1,5 +1,6 @@
 package com.artyomov.persistence.jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,11 +25,14 @@ public class Event implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
     @NotNull
+    @Column(name = "date")
     private LocalDate date;
 
+    @Column(name = "description")
     private String description;
 
     protected Event() {
