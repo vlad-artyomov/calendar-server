@@ -13,7 +13,6 @@ import com.artyomov.persistence.jpa.Event;
 public class EventMapper {
 
     public Event fromEventInfo(EventInfo eventInfo) {
-
         return new Event.Builder()
                 .withDate(eventInfo.getDate())
                 .withDescription(eventInfo.getDescription())
@@ -21,7 +20,6 @@ public class EventMapper {
     }
 
     public EventInfo fromEvent(Event event) {
-
         EventInfo eventInfo = new EventInfo();
 
         eventInfo.setDate(event.getDate());

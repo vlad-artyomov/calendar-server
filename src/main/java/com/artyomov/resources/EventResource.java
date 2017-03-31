@@ -24,7 +24,6 @@ public class EventResource {
     @Path("test")
     @Produces("application/json")
     public Response getTestDto() {
-
         EventInfo eventInfo = new EventInfo();
 
         eventInfo.setDate(LocalDate.now());
@@ -37,7 +36,6 @@ public class EventResource {
     @Path("testList")
     @Produces("application/json")
     public Response getTestDtoList() {
-
         EventInfo eventInfo = new EventInfo();
         eventInfo.setDate(LocalDate.now());
         eventInfo.setDescription("Today is " + eventInfo.getDate().toString());
