@@ -1,9 +1,6 @@
 package com.artyomov.resources;
 
 import com.artyomov.persistence.dto.EventInfo;
-import com.artyomov.persistence.jpa.Event;
-import com.artyomov.persistence.mapper.EventMapper;
-import com.artyomov.persistence.repository.EventRepository;
 import com.artyomov.services.EventService;
 
 import javax.inject.Inject;
@@ -15,7 +12,6 @@ import javax.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Events REST resource.
