@@ -5,8 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -18,18 +19,20 @@ import java.time.LocalDate;
  */
 @Entity
 @Table(name = "event")
-//TODO add data source
-public class Event implements Serializable {
+@NamedQueries({
+        @NamedQuery(name = Event.QUERY_ALL, query = "SELECT e FROM Event e")
+})
+public class Event extends AbstractEntity implements Serializable {
 
     private static final long serialVersionUID = 5112396377615933516L;
 
+    public static final String QUERY_ALL = "Event.all";
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
 
-    @NotNull
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     private LocalDate date;
 
     @Column(name = "description")

@@ -1,7 +1,10 @@
 package com.artyomov.resources;
 
 import com.artyomov.persistence.dto.EventInfo;
+import com.artyomov.persistence.jpa.Event;
+import com.artyomov.persistence.mapper.EventMapper;
 import com.artyomov.persistence.repository.EventRepository;
+import com.artyomov.services.EventService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -12,6 +15,7 @@ import javax.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Events REST resource.
@@ -20,14 +24,14 @@ import java.util.List;
  * @since 08.03.2017, 10:00
  */
 @Path("events")
+@Produces("application/json")
 public class EventResource {
 
     @Inject
-    EventRepository eventRepository;
+    EventService eventService;
 
     @GET
     @Path("test")
-    @Produces("application/json")
     public Response getTestDto() {
         EventInfo eventInfo = new EventInfo();
 
@@ -39,7 +43,6 @@ public class EventResource {
 
     @GET
     @Path("testList")
-    @Produces("application/json")
     public Response getTestDtoList() {
         EventInfo eventInfo = new EventInfo();
         eventInfo.setDate(LocalDate.now());
@@ -57,6 +60,16 @@ public class EventResource {
         events.add(eventInfo);
         events.add(eventInfo1);
         events.add(eventInfo2);
+
+        GenericEntity<List<EventInfo>> entity = new GenericEntity<List<EventInfo>>(events) {};
+
+        return Response.ok(entity).build();
+    }
+
+    @GET
+    public Response getEvents() {
+
+        List<EventInfo> events = eventService.addTestEvent();
 
         GenericEntity<List<EventInfo>> entity = new GenericEntity<List<EventInfo>>(events) {};
 
