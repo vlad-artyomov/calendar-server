@@ -63,7 +63,7 @@ Portions Copyright [2016] [Payara Foundation and/or its affiliates]
         <jdbc-connection-pool datasource-classname="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" name="calendar-server-pool" res-type="javax.sql.DataSource">
             <property name="user" value="b8319090ec8df5"></property>
             <property name="password" value="3a7f277c"></property>
-            <property name="url" value="jdbc\\:mysql\\://eu-cdbr-west-01.cleardb.com/heroku_7c5fb08fbed7fb7"></property>
+            <property name="url" value="jdbc:mysql://eu-cdbr-west-01.cleardb.com/heroku_7c5fb08fbed7fb7"></property>
         </jdbc-connection-pool>
         <jdbc-resource pool-name="calendar-server-pool" jndi-name="jdbc/calendar-server"></jdbc-resource>
     </resources>
