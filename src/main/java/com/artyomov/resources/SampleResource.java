@@ -12,9 +12,9 @@ import javax.ws.rs.core.MediaType;
  * Test REST resource
  */
 @Path("rest")
-public class MyResource {
+public class SampleResource {
 
-    private static final Logger log = LogManager.getLogger(MyResource.class);
+    private static final Logger log = LogManager.getLogger(SampleResource.class);
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
