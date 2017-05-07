@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    image: payara/micro
+    ports:
+    - "8080:8080"
+    volumes:
+    - "./:/calendar-server"
+    entrypoint:
+    - java
+    - -jar
+    - /opt/payara/payara-micro.jar
+    - --deploy
+    - /calendar-server/target/calendar-server.war
+    - --domainConfig
+    - /calendar-server/payara/domain-docker.xml
+    links:
+    - db
+  db:
+    image: mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=calendar-server
+    ports:
+    - "13306:3306"
+    volumes:
+    - "./db:/var/lib/mysql"
