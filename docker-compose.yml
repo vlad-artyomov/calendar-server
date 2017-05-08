@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    build: ./
+    image: payara-server-full:171
+    ports:
+    - "18080:8080"
+    - "19009:9009"
+    - "14848:4848"
+    volumes:
+    - "./target/war:/opt/payara41/glassfish/domains/domain1/autodeploy"
+    - "./target/logs:/opt/payara41/glassfish/domains/domain1/logs"
+    entrypoint:
+     - /opt/payara41/bin/asadmin
+     - start-domain
+     - --debug
+     - -v
+    links:
+    - db
+  db:
+    image: mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    - MYSQL_DATABASE=calendar-server
+    ports:
+    - "13306:3306"
+    volumes:
+    - "./db:/var/lib/mysql"
