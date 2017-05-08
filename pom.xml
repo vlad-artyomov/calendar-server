@@ -27,6 +27,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.3</version>
                 <configuration>
+                    <outputDirectory>target/war</outputDirectory>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
