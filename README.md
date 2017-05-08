@@ -64,6 +64,12 @@ java -jar payara/payara-micro-4.1.1.171.0.1.jar \
     cp target/calendar-server.war $PAYARA_DIR/glassfish/domains/domain1/autodeploy/
     ```
     
-# Running using Docker
+# Running via Docker
 
-TODO
+```
+mvn clean install
+
+docker-compose up -d
+```
+
+> Note: default MySQL and Payara ports mapped to host by adding "1" at the beginning, e.g. localhost:8080 -> localhost:18080
