@@ -10,7 +10,7 @@ Calendar app REST backend.
 mvn clean install
 
 java -jar payara/payara-micro-4.1.1.171.0.1.jar \
---deploy target/calendar-server.war \
+--deploy target/war/calendar-server.war \
 --domainConfig payara/domain.xml
 ```
 
@@ -61,7 +61,7 @@ java -jar payara/payara-micro-4.1.1.171.0.1.jar \
     ```
     mvn clean install
     
-    cp target/calendar-server.war $PAYARA_DIR/glassfish/domains/domain1/autodeploy/
+    cp target/war/calendar-server.war $PAYARA_DIR/glassfish/domains/domain1/autodeploy/
     ```
     
 # Running via Docker
