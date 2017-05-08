@@ -1,19 +1,20 @@
 version: '3'
 services:
   web:
-    image: payara/micro
+    build: ./
+    image: payara-server-full:171
     ports:
-    - "8080:8080"
+    - "18080:8080"
+    - "19009:9009"
+    - "14848:4848"
     volumes:
-    - "./:/calendar-server"
+    - "./target/war:/opt/payara41/glassfish/domains/domain1/autodeploy"
+    - "./target/logs:/opt/payara41/glassfish/domains/domain1/logs"
     entrypoint:
-    - java
-    - -jar
-    - /opt/payara/payara-micro.jar
-    - --deploy
-    - /calendar-server/target/calendar-server.war
-    - --domainConfig
-    - /calendar-server/payara/domain-docker.xml
+     - /opt/payara41/bin/asadmin
+     - start-domain
+     - --debug
+     - -v
     links:
     - db
   db:
